@@ -1,0 +1,32 @@
+import trenes.*
+
+describe "trenes"{
+	var vagonDePasajeros1 = new VagonDePasajeros(largo=10, ancho=4)
+	var vagonDePasajeros2 = new VagonDePasajeros(largo=6, ancho=2)
+	var vagonDePasajeros3 = new VagonDePasajeros(largo=7, ancho=5)
+	
+	var vagonDeCarga1 = new VagonDeCarga(cargaMaxima = 2000)
+	var vagonDeCarga2 = new VagonDeCarga(cargaMaxima = 3000)
+	var vagonDeCarga3 = new VagonDeCarga(cargaMaxima = 4000)
+	
+	var locomotora1 = new Locomotora(pesoMaximo = 1200, pesoQuePuedeArrastrar = 6000, velocidadMaxima = 200)
+	var locomotora2 = new Locomotora(pesoMaximo = 2500, pesoQuePuedeArrastrar = 5400, velocidadMaxima = 120)
+	var locomotora3 = new Locomotora(pesoMaximo = 1600, pesoQuePuedeArrastrar = 4000, velocidadMaxima = 300)
+	
+	var formacion = new Formacion(vagones = [vagonDePasajeros1, 
+											 vagonDePasajeros2,
+											 vagonDePasajeros3,
+											 vagonDeCarga1,
+											 vagonDeCarga2,
+											 vagonDeCarga3,
+											 locomotora1,
+											 locomotora2,
+											 locomotora3])
+	
+	test "testX" {
+	
+		assert.equals(3,formacion.vagonesLivianos())
+		assert.equals(120,formacion.velocidadMaxima())
+	
+	}	
+}
