@@ -13,13 +13,33 @@ describe "trenes"{
 	var locomotora2 = new Locomotora(pesoMaximo = 2500, pesoQuePuedeArrastrar = 5400, velocidadMaxima = 120)
 	var locomotora3 = new Locomotora(pesoMaximo = 1600, pesoQuePuedeArrastrar = 4000, velocidadMaxima = 300)
 	
+	var vagones = [vagonDePasajeros1, 
+					 vagonDePasajeros2,
+					 vagonDePasajeros3,
+					 vagonDeCarga1,
+					 vagonDeCarga2,
+					 vagonDeCarga3]
+					 
+   var locomotoras = [locomotora1,
+					  locomotora2,
+					  locomotora3]
+	
 	var formacion = new Formacion(vagones = [vagonDePasajeros1, 
 											 vagonDePasajeros2,
 											 vagonDePasajeros3,
 											 vagonDeCarga1,
 											 vagonDeCarga2,
-											 vagonDeCarga3,
-											 locomotora1,
+											 vagonDeCarga3],
+								 locomotoras = [locomotora1,
+											 	locomotora2,
+											 	locomotora3],
+							 	 formacion = [vagonDePasajeros1, 
+											 vagonDePasajeros2,
+											 vagonDePasajeros3,
+											 vagonDeCarga1,
+											 vagonDeCarga2,
+											 vagonDeCarga3] + 
+											 [locomotora1,
 											 locomotora2,
 											 locomotora3])
 	
@@ -27,6 +47,8 @@ describe "trenes"{
 	
 		assert.equals(3,formacion.vagonesLivianos())
 		assert.equals(120,formacion.velocidadMaxima())
-	
+		assert.equals(false,formacion.esEficiente())
+		assert.equals(false,formacion.puedeMoverse())
+		assert.equals(16820,formacion.kilosDeEmpujeQueFaltanParaMoverse())
 	}	
 }
